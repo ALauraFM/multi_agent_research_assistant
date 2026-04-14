@@ -2,8 +2,8 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-
 client = OpenAI()
+
 
 def write_report(topic: str, insights: str) -> str:
     response = client.chat.completions.create(
@@ -11,42 +11,48 @@ def write_report(topic: str, insights: str) -> str:
         messages=[
             {
                 "role": "system",
-                "content": "Você é um redator técnico profissional. Gere relatórios claros, bem estruturados e com linguagem analítica."
+                "content": "Você é um consultor estratégico que escreve relatórios executivos para tomada de decisão."
             },
             {
                 "role": "user",
                 "content": f"""
-Crie um relatório em Markdown com base no tema e nos insights abaixo.
+Crie um relatório de inteligência de mercado.
 
 Tema: {topic}
 
-Estrutura obrigatória:
+Use exatamente esta estrutura:
 
 # {topic}
 
-## Introdução
-Explique o contexto do tema.
+## Visão Geral
+...
 
-## Principais Tendências
-Liste e explique as tendências.
+## Principais Players
+...
 
-## Análise de Mercado
-Aprofunde os insights.
+## Tendências de Mercado
+...
 
-## Oportunidades
-Descreva oportunidades relevantes.
+## Oportunidades Estratégicas
+...
 
-## Riscos e Desafios
-Aponte possíveis problemas.
+## Riscos e Barreiras
+...
 
-## Conclusão
-Resumo estratégico final.
+## Recomendações Estratégicas
+...
 
-Insights:
+## Conclusão Executiva
+...
+
+## Fontes
+Liste os links utilizados
+
+Baseie-se nos insights abaixo:
 {insights}
 """
             }
         ]
     )
-    return response.choices[0].message.content
 
+    return response.choices[0].message.content
