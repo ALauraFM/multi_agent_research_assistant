@@ -1,6 +1,7 @@
 export interface GenerateReportRequest {
   topic: string;
   context?: string;
+  language?: string;
 }
 
 export interface GenerateReportResponse {
@@ -30,6 +31,7 @@ export async function generateReport(
   if (request.context) {
     params.append('context', request.context);
   }
+  params.append('language', request.language || 'en');
 
   const response = await fetch(`${API_BASE_URL}/generate?${params.toString()}`, {
     method: 'POST',

@@ -1,22 +1,11 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata: Metadata = {
-  title: "AgentFlow Market Intelligence",
-  description: "AI-powered market intelligence and research reports",
-}
+// This is a root layout that will never be rendered directly.
+// The middleware redirects all requests to /[locale] routes.
+// We keep this file to satisfy Next.js requirements.
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+  return children
 }

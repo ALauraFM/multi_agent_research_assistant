@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "AgentFlow Market Intelligence",
+    "description": "AI-powered market intelligence and research reports"
+  },
+  "header": {
+    "title": "AgentFlow Market Intelligence",
+    "subtitle": "AI-powered market research and analysis"
+  },
+  "footer": {
+    "poweredBy": "Powered by LangGraph, OpenAI GPT-4o-mini, and Tavily Search"
+  },
+  "emptyState": {
+    "title": "Ready to Generate Insights",
+    "description": "Enter a topic above to generate a comprehensive market intelligence report powered by AI agents"
+  },
+  "error": {
+    "title": "Error",
+    "defaultMessage": "Failed to generate report. Please try again."
+  },
+  "language": {
+    "select": "Select language",
+    "en": "English",
+    "pt": "Português"
+  },
+  "reportForm": {
+    "title": "Generate Market Intelligence Report",
+    "description": "Enter a topic and optional business context to generate a comprehensive market analysis",
+    "topic": {
+      "label": "Topic",
+      "placeholder": "e.g., AI in Healthcare in Brazil",
+      "required": "required"
+    },
+    "context": {
+      "label": "Business Context",
+      "placeholder": "e.g., Early-stage startup with limited capital looking for market opportunities",
+      "optional": "optional"
+    },
+    "submit": "Generate Report",
+    "submitLoading": "Generating Report..."
+  },
+  "loadingState": {
+    "title": "Generating Your Report",
+    "description": "Our AI agents are researching, analyzing, and writing your market intelligence report. This may take a minute...",
+    "agents": {
+      "researcher": "Researcher",
+      "analyzer": "Analyzer",
+      "writer": "Writer"
+    }
+  },
+  "reportViewer": {
+    "title": "Market Intelligence Report",
+    "systemReview": {
+      "title": "System Review",
+      "status": "Status:",
+      "approved": "✓ Approved",
+      "needsImprovement": "⚠ Needs Improvement",
+      "noReview": "No review available"
+    },
+    "stats": {
+      "title": "Generation Stats",
+      "iterations": "Iterations:",
+      "firstAttempt": "Report approved on first attempt",
+      "refined": "Report refined {count} times"
+    },
+    "actions": {
+      "copy": "Copy",
+      "copied": "Copied!",
+      "newReport": "New Report"
+    }
+  }
+}

@@ -14,7 +14,7 @@ app.add_middleware(
 
 
 @app.post("/generate")
-def generate(topic: str, context: str = ""):
-    result = run_pipeline(topic, context)
+def generate(topic: str, context: str = "", language: str = "en"):
+    result = run_pipeline(topic, context, language)
 
     return result

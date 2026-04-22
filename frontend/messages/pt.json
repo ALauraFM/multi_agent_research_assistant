@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "AgentFlow Market Intelligence",
+    "description": "Relatórios de inteligência e pesquisa de mercado com IA"
+  },
+  "header": {
+    "title": "AgentFlow Market Intelligence",
+    "subtitle": "Pesquisa e análise de mercado com IA"
+  },
+  "footer": {
+    "poweredBy": "Desenvolvido com LangGraph, OpenAI GPT-4o-mini e Tavily Search"
+  },
+  "emptyState": {
+    "title": "Pronto para Gerar Insights",
+    "description": "Digite um tema acima para gerar um relatório completo de inteligência de mercado com agentes de IA"
+  },
+  "error": {
+    "title": "Erro",
+    "defaultMessage": "Falha ao gerar relatório. Por favor, tente novamente."
+  },
+  "language": {
+    "select": "Selecionar idioma",
+    "en": "English",
+    "pt": "Português"
+  },
+  "reportForm": {
+    "title": "Gerar Relatório de Inteligência de Mercado",
+    "description": "Digite um tema e contexto de negócios opcional para gerar uma análise de mercado completa",
+    "topic": {
+      "label": "Tema",
+      "placeholder": "ex: IA na Saúde no Brasil",
+      "required": "obrigatório"
+    },
+    "context": {
+      "label": "Contexto de Negócios",
+      "placeholder": "ex: Startup em fase inicial com capital limitado buscando oportunidades de mercado",
+      "optional": "opcional"
+    },
+    "submit": "Gerar Relatório",
+    "submitLoading": "Gerando Relatório..."
+  },
+  "loadingState": {
+    "title": "Gerando Seu Relatório",
+    "description": "Nossos agentes de IA estão pesquisando, analisando e escrevendo seu relatório de inteligência de mercado. Isso pode levar um minuto...",
+    "agents": {
+      "researcher": "Pesquisador",
+      "analyzer": "Analista",
+      "writer": "Escritor"
+    }
+  },
+  "reportViewer": {
+    "title": "Relatório de Inteligência de Mercado",
+    "systemReview": {
+      "title": "Revisão do Sistema",
+      "status": "Status:",
+      "approved": "✓ Aprovado",
+      "needsImprovement": "⚠ Precisa de Melhorias",
+      "noReview": "Nenhuma revisão disponível"
+    },
+    "stats": {
+      "title": "Estatísticas de Geração",
+      "iterations": "Iterações:",
+      "firstAttempt": "Relatório aprovado na primeira tentativa",
+      "refined": "Relatório refinado {count} vezes"
+    },
+    "actions": {
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "newReport": "Novo Relatório"
+    }
+  }
+}

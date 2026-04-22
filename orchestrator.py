@@ -4,10 +4,11 @@ from graph.workflow import build_graph
 graph = build_graph()
 
 
-def run_pipeline(topic: str, context: str = ""):
+def run_pipeline(topic: str, context: str = "", language: str = "en"):
     result = graph.invoke({
         "topic": topic,
         "context": context,
+        "language": language,
         "research": "",
         "insights": "",
         "report": "",

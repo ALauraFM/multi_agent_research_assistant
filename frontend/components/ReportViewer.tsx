@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import ReactMarkdown from "react-markdown"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -13,6 +14,7 @@ interface ReportViewerProps {
 }
 
 export function ReportViewer({ result, onReset }: ReportViewerProps) {
+  const t = useTranslations('reportViewer')
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
@@ -25,13 +27,13 @@ export function ReportViewer({ result, onReset }: ReportViewerProps) {
     if (result.approved) {
       return (
         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-          ✓ Approved
+          {t('systemReview.approved')}
         </span>
       )
     }
     return (
       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-        ⚠ Needs Improvement
+        {t('systemReview.needsImprovement')}
       </span>
     )
   }
@@ -43,17 +45,17 @@ export function ReportViewer({ result, onReset }: ReportViewerProps) {
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-slate-500">
-              System Review
+              {t('systemReview.title')}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm">Status:</span>
+                <span className="text-sm">{t('systemReview.status')}</span>
                 {getApprovalBadge()}
               </div>
               <div className="text-xs text-slate-600 mt-2 p-3 bg-slate-50 rounded-md">
-                {result.review || "No review available"}
+                {result.review || t('systemReview.noReview')}
               </div>
             </div>
           </CardContent>
@@ -62,21 +64,21 @@ export function ReportViewer({ result, onReset }: ReportViewerProps) {
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-slate-500">
-              Generation Stats
+              {t('stats.title')}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm">Iterations:</span>
+                <span className="text-sm">{t('stats.iterations')}</span>
                 <span className="text-2xl font-bold text-slate-900">
                   {result.iterations}
                 </span>
               </div>
               <div className="text-xs text-slate-500">
                 {result.iterations === 1
-                  ? "Report approved on first attempt"
-                  : `Report refined ${result.iterations} times`}
+                  ? t('stats.firstAttempt')
+                  : t('stats.refined', { count: result.iterations })}
               </div>
             </div>
           </CardContent>
@@ -87,7 +89,7 @@ export function ReportViewer({ result, onReset }: ReportViewerProps) {
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>Market Intelligence Report</CardTitle>
+            <CardTitle>{t('title')}</CardTitle>
             <div className="flex gap-2">
               <Button
                 variant="outline"
@@ -98,12 +100,12 @@ export function ReportViewer({ result, onReset }: ReportViewerProps) {
                 {copied ? (
                   <>
                     <Check className="h-4 w-4" />
-                    Copied!
+                    {t('actions.copied')}
                   </>
                 ) : (
                   <>
                     <Copy className="h-4 w-4" />
-                    Copy
+                    {t('actions.copy')}
                   </>
                 )}
               </Button>
@@ -114,7 +116,7 @@ export function ReportViewer({ result, onReset }: ReportViewerProps) {
                 className="gap-2"
               >
                 <RotateCcw className="h-4 w-4" />
-                New Report
+                {t('actions.newReport')}
               </Button>
             </div>
           </div>

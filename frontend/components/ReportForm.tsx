@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -13,6 +14,7 @@ interface ReportFormProps {
 }
 
 export function ReportForm({ onSubmit, isLoading }: ReportFormProps) {
+  const t = useTranslations('reportForm')
   const [topic, setTopic] = useState("")
   const [context, setContext] = useState("")
 
@@ -26,20 +28,20 @@ export function ReportForm({ onSubmit, isLoading }: ReportFormProps) {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Generate Market Intelligence Report</CardTitle>
+        <CardTitle>{t('title')}</CardTitle>
         <CardDescription>
-          Enter a topic and optional business context to generate a comprehensive market analysis
+          {t('description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="topic" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Topic <span className="text-red-500">*</span>
+              {t('topic.label')} <span className="text-red-500">*</span>
             </label>
             <Input
               id="topic"
-              placeholder="e.g., AI in Healthcare in Brazil"
+              placeholder={t('topic.placeholder')}
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
               disabled={isLoading}
@@ -49,11 +51,11 @@ export function ReportForm({ onSubmit, isLoading }: ReportFormProps) {
 
           <div className="space-y-2">
             <label htmlFor="context" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Business Context <span className="text-slate-400">(optional)</span>
+              {t('context.label')} <span className="text-slate-400">({t('context.optional')})</span>
             </label>
             <Textarea
               id="context"
-              placeholder="e.g., Early-stage startup with limited capital looking for market opportunities"
+              placeholder={t('context.placeholder')}
               value={context}
               onChange={(e) => setContext(e.target.value)}
               disabled={isLoading}
@@ -69,10 +71,10 @@ export function ReportForm({ onSubmit, isLoading }: ReportFormProps) {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Generating Report...
+                {t('submitLoading')}
               </>
             ) : (
-              "Generate Report"
+              t('submit')
             )}
           </Button>
         </form>
